@@ -5,8 +5,6 @@ import _ from "lodash";
 import http from "axios";
 
 import './App.less';
-// import './style/antd-patch.less';
-// import './style/global.less';
 
 import Home from './router/home/Home';
 import Knownledge from './router/knownledge/Knownledge';
