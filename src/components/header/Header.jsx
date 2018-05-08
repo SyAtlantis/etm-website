@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
-// import { Menu, Dropdown, Button, Icon } from 'antd';
+// import { Menu, Icon } from 'antd';
+import { Menu, Dropdown, Button, Icon } from 'antd';
 // import ConstDefines from '../../models/const-defines';
 
 import './Header.less';
@@ -79,7 +79,7 @@ class Header extends React.Component {
             mediaQueryList.addListener((mediaQueryListEvent) => {
                 this.setState({
                     mediaQuery: !mediaQueryListEvent.matches,
-                });                
+                });
             })
 
         } else {
@@ -99,73 +99,67 @@ class Header extends React.Component {
                 collapseStyle = this.props.className + '-collapseShow';
             }
         }
-
+        const menu = (
+            <Menu>
+              <Menu.Item key="0">
+                <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">1st menu item</a>
+              </Menu.Item>
+              <Menu.Item key="1">
+                <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">2nd menu item</a>
+              </Menu.Item>
+              <Menu.Divider />
+              <Menu.Item key="3" disabled>3rd menu item（disabled）</Menu.Item>
+            </Menu>
+          );
         return (
             <div className={this.props.className}>
 
                 <div className='flex container'>
                     <a className={`${this.props.className}-brand`} href="/"></a>
                     {
-                        this.state.collapse ? 
-                            <div className={`${this.props.className}-toggle`} 
-                                onClick={(...args) => {this.onMenuCollapse(false, ...args)}}>
-                                <Icon type='bars' style={{fontSize: '32px', color: '#fff'}}/>
-                            </div>:
-                            <div className={`${this.props.className}-toggle`} 
-                                onClick={(...args) => {this.onMenuCollapse(true, ...args)}}>
-                                <Icon type='close' style={{fontSize: '32px', color: '#fff'}} />
+                        this.state.collapse ?
+                            <div className={`${this.props.className}-toggle`}
+                                onClick={(...args) => { this.onMenuCollapse(false, ...args) }}>
+                                <Icon type='bars' style={{ fontSize: '32px', color: '#fff' }} />
+                            </div> :
+                            <div className={`${this.props.className}-toggle`}
+                                onClick={(...args) => { this.onMenuCollapse(true, ...args) }}>
+                                <Icon type='close' style={{ fontSize: '32px', color: '#fff' }} />
                             </div>
                     }
                     <div className={`${this.props.className}-collapse ${collapseStyle}`}>
-                        <Menu 
+                        <Menu
                             mode={menuMode}
                             onClick={(...args) => { this.onMenuItemClick(...args) }}
                             onSelect={(...args) => { this.onMenuItemSelect(...args) }}
-                            selectedKeys={this.selectedKeys.length <=0 ? [] : this.selectedKeys} >
-                                <Menu.SubMenu title={intl.get('UNDERSTAND')}>
-                                    <Menu.Item key='knownledge-1'>{intl.get('INTRODUCTION')}</Menu.Item>
-                                    <Menu.Item key='knownledge-2'>{intl.get('SHD_COMPLETENESS')}</Menu.Item>
-                                    <Menu.Item key='knownledge-3'>{intl.get('EQUILIBRIUM')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.SubMenu title={intl.get('CONSENSUS')}>
-                                    <Menu.Item key='consensus-1'>{intl.get('KANTOROVICH_CONSENSUS')}</Menu.Item>
-                                    <Menu.Item key='consensus-2'>{intl.get('CONCEPTUAL')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.SubMenu title={intl.get('ECOSYSTEM')}>
-                                    <Menu.Item key='ecosystem-1'>{intl.get('CENTRA-DERIVED_CHAINS')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-2'>{intl.get('PARALLEL_CHAIN')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-3'>{intl.get('CHAIN_ADAPTOR')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-4'>{intl.get('SAMRT_CONTRACT')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-5'>{intl.get('MILL_MALL')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.Item key='moore'>{intl.get('MOORE_ECONOMICS')}</Menu.Item>
-                                <Menu.Item key='documents' >{intl.get('DOCUMENTS')}</Menu.Item>
-                        </Menu><Menu 
-                            mode={menuMode}
-                            onClick={(...args) => { this.onMenuItemClick(...args) }}
-                            onSelect={(...args) => { this.onMenuItemSelect(...args) }}
-                            selectedKeys={this.selectedKeys.length <=0 ? [] : this.selectedKeys} >
-                                <Menu.SubMenu title={intl.get('UNDERSTAND')}>
-                                    <Menu.Item key='knownledge-1'>{intl.get('INTRODUCTION')}</Menu.Item>
-                                    <Menu.Item key='knownledge-2'>{intl.get('SHD_COMPLETENESS')}</Menu.Item>
-                                    <Menu.Item key='knownledge-3'>{intl.get('EQUILIBRIUM')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.SubMenu title={intl.get('CONSENSUS')}>
-                                    <Menu.Item key='consensus-1'>{intl.get('KANTOROVICH_CONSENSUS')}</Menu.Item>
-                                    <Menu.Item key='consensus-2'>{intl.get('CONCEPTUAL')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.SubMenu title={intl.get('ECOSYSTEM')}>
-                                    <Menu.Item key='ecosystem-1'>{intl.get('CENTRA-DERIVED_CHAINS')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-2'>{intl.get('PARALLEL_CHAIN')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-3'>{intl.get('CHAIN_ADAPTOR')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-4'>{intl.get('SAMRT_CONTRACT')}</Menu.Item>
-                                    <Menu.Item key='ecosystem-5'>{intl.get('MILL_MALL')}</Menu.Item>
-                                </Menu.SubMenu>
-                                <Menu.Item key='moore'>{intl.get('MOORE_ECONOMICS')}</Menu.Item>
-                                <Menu.Item key='documents' >{intl.get('DOCUMENTS')}</Menu.Item>
+                            selectedKeys={this.selectedKeys.length <= 0 ? [] : this.selectedKeys} >
+                            <Menu.SubMenu title={intl.get('UNDERSTAND')}>
+                                <Menu.Item key='knownledge-1'>{intl.get('INTRODUCTION')}</Menu.Item>
+                                <Menu.Item key='knownledge-2'>{intl.get('SHD_COMPLETENESS')}</Menu.Item>
+                                <Menu.Item key='knownledge-3'>{intl.get('EQUILIBRIUM')}</Menu.Item>
+                            </Menu.SubMenu>
+                            <Menu.SubMenu title={intl.get('CONSENSUS')}>
+                                <Menu.Item key='consensus-1'>{intl.get('KANTOROVICH_CONSENSUS')}</Menu.Item>
+                                <Menu.Item key='consensus-2'>{intl.get('CONCEPTUAL')}</Menu.Item>
+                            </Menu.SubMenu>
+                            <Menu.SubMenu title={intl.get('ECOSYSTEM')}>
+                                <Menu.Item key='ecosystem-1'>{intl.get('CENTRA-DERIVED_CHAINS')}</Menu.Item>
+                                <Menu.Item key='ecosystem-2'>{intl.get('PARALLEL_CHAIN')}</Menu.Item>
+                                <Menu.Item key='ecosystem-3'>{intl.get('CHAIN_ADAPTOR')}</Menu.Item>
+                                <Menu.Item key='ecosystem-4'>{intl.get('SAMRT_CONTRACT')}</Menu.Item>
+                                <Menu.Item key='ecosystem-5'>{intl.get('MILL_MALL')}</Menu.Item>
+                            </Menu.SubMenu>
+                            <Menu.Item key='moore'>{intl.get('MOORE_ECONOMICS')}</Menu.Item>
+                            <Menu.Item key='documents' >{intl.get('DOCUMENTS')}</Menu.Item>
+                            <Dropdown overlay={menu} style="float:right;">
+                            <a className="ant-dropdown-link" href="#">
+                                Hover me <Icon type="down" />
+                            </a>
+                            </Dropdown>
                         </Menu>
+                        
                     </div>
-                    {this.renderLocaleSelector()}
+                    {/* {this.renderLocaleSelector()} */}
                 </div>
             </div>
         );

@@ -6,7 +6,7 @@ import { Tabs } from 'antd';
 // import TabPane1 from '../../components/consensus-tabpane1';
 // import TabPane2 from '../../components/consensus-tabpane2';
 
-import './style/index.less';
+import './Consensus.less';
 import intl from 'react-intl-universal';
 
 const PREFIXED = 'consensus-';

@@ -4,7 +4,7 @@ import { Divider } from 'antd';
 // import Header from '../../components/header';
 // import Footer from '../../components/footer';
 
-import './style/index.less';
+import './Moore.less';
 
 import RawPieChart from './image/piechart.png';
 import RawPieChart_en from './image/piechart-en.jpg';

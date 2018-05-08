@@ -9,7 +9,7 @@ import { Tabs } from 'antd';
 // import TabPane4 from '../../components/ecosystem-tabpane4';
 // import TabPane5 from '../../components/ecosystem-tabpane5';
 
-import './style/index.less';
+import './Ecosystem.less';
 import intl from 'react-intl-universal';
 
 const PREFIXED = 'ecosystem-';

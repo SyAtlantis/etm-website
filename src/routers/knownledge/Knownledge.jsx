@@ -7,7 +7,7 @@ import { Tabs } from 'antd';
 // import TabPane2 from '../../components/knownledge-tabpane2';
 // import TabPane3 from '../../components/knownledge-tabpane3';
 
-import './style/index.less';
+import './Knownledge.less';
 import intl from 'react-intl-universal';
 
 const PREFIXED = 'knownledge-';

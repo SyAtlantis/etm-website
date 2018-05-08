@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from 'antd';
 
-// import Header from '../../components/header/Header';
+import Header from '../../components/header/Header';
 // import Footer from '../../components/footer';
 // import Banner from '../../components/home-banner';
 // import Section1 from '../../components/home-section1';
@@ -13,9 +13,7 @@ import { Button } from 'antd';
 // import Section6 from '../../components/home-section6';
 // import Section7 from '../../components/home-section7';
 
-// import FlipCountdown from '../../components/flipcountdown';
-
-import './style/index.less';
+import './Home.less';
 
 class Home extends React.Component {
     constructor(props, context) {
@@ -29,7 +27,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className={this.props.className}>
-                {/* <Header /> */}
+                <Header />
                 {/* <Banner />
                 <Section1 history={this.props.history}/>
                 <Section2 history={this.props.history}/>
