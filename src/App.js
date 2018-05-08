@@ -12,6 +12,10 @@ import Ecosystem from './router/ecosystem/Ecosystem';
 import Consensus from './router/consensus/Consensus';
 import Moore from './router/moore/Moore';
 
+// const SUPPOER_LOCALES = {
+//   "en-US":"English",
+//   "zh-CN":"简体中文"
+// }
 const SUPPOER_LOCALES = [
   {
     name: "English",
@@ -39,7 +43,11 @@ class App extends Component {
     if (!_.find(SUPPOER_LOCALES, { value: currentLocale })) {
       currentLocale = "zh-CN";
     }
+    // if(!SUPPOER_LOCALES[currentLocale]){
+    //   currentLocale = "zh-CN";
+    // }
     global.lang=currentLocale;
+    console.log(global.lang);
     http
       .get(`locales/${currentLocale}.json`)
       .then(res => {
@@ -64,7 +72,7 @@ class App extends Component {
           <Route path='/ecosystem' component={ Ecosystem } />
           <Route path='/consensus' component={ Consensus } />
           <Route path='/moore' component={ Moore } />
-          <Redirect to="/"/>
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     );
